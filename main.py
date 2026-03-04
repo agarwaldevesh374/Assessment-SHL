@@ -1,6 +1,13 @@
 # ============================================================================
 # CELL 12: Setup FastAPI
 # ============================================================================
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+from typing import List
+import os
+import re
+
 # Create API endpoints
 
 print("\n" + "="*80)
@@ -84,3 +91,4 @@ def recommend_api(request: QueryRequest):
 print(" FastAPI configured!")
 
 print("   Endpoints: /health, /recommend")
+
