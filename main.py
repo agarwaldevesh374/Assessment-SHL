@@ -10,6 +10,9 @@ print("="*80)
 # Create FastAPI app
 app = FastAPI(title="SHL Assessment Recommendation API")
 
+# Load API key from environment
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -79,4 +82,5 @@ def recommend_api(request: QueryRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 print(" FastAPI configured!")
+
 print("   Endpoints: /health, /recommend")
