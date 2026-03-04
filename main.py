@@ -49,6 +49,11 @@ class RecommendationResponse(BaseModel):
     recommended_assessments: List[AssessmentResponse]
 
 # API endpoints
+
+@app.get("/")
+def home():
+    return {"message": "SHL Assessment Recommendation API is running"}
+            
 @app.get("/health")
 def health_check():
     """Health check endpoint"""
@@ -91,4 +96,5 @@ def recommend_api(request: QueryRequest):
 print(" FastAPI configured!")
 
 print("   Endpoints: /health, /recommend")
+
 
